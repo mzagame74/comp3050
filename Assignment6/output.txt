@@ -1,0 +1,330 @@
+Script started on 2020-11-30 22:06:40-0500
+
+*************************************************************
+*** Here I am making a single executable file AddInts.exe ***
+*************************************************************
+
+]0;osboxes@ubuntu: ~/COMP3050/Assignment6[01;32mosboxes@ubuntu[00m:[01;34m~/COMP3050/Assignment6[00m$ make AddInts.exe
+gcc -c -g linker.c
+gcc -o linker linker.o
+./masm_mrd -o < AddInts/main.asm > AddInts/main.o
+./masm_mrd -o < AddInts/writestr.asm > AddInts/writestr.o
+./masm_mrd -o < AddInts/readint.asm > AddInts/readint.o
+./masm_mrd -o < AddInts/addints.asm > AddInts/addints.o
+./masm_mrd -o < AddInts/writeint.asm > AddInts/writeint.o
+./masm_mrd -o < AddInts/xbsywt.asm > AddInts/xbsywt.o
+./masm_mrd -o < AddInts/rbsywt.asm > AddInts/rbsywt.o
+./masm_mrd -o < AddInts/data.asm > AddInts/data.o
+./linker AddInts/main.o AddInts/writestr.o AddInts/readint.o AddInts/addints.o AddInts/writeint.o AddInts/xbsywt.o AddInts/rbsywt.o AddInts/data.o > AddInts.exe
+
+*********************************************************
+***   and now I am running it on the mic1 emulator    ***
+*********************************************************
+
+]0;osboxes@ubuntu: ~/COMP3050/Assignment6[01;32mosboxes@ubuntu[00m:[01;34m~/COMP3050/Assignment6[00m$ ./mic1 prom.dat AddInts.exe 0 1024
+
+Read in 149 micro instructions
+Read in 205 machine instructions
+Starting PC is : 0000000000000000  base 10:       0
+Starting SP is : 0000010000000000  base 10:    1024
+
+PLEASE ENTER AN INTEGER BETWEEN 1 AND 32767
+
+25
+PLEASE ENTER AN INTEGER BETWEEN 1 AND 32767
+
+35
+THE SUM OF THESE TWO INTEGERS IS:
+
+60
+
+
+ProgramCounter : 0000000000100101  base 10:      37
+Accumulator    : 0000000000000000  base 10:       0
+InstructionReg : 1111111111000000  base 10:   65472
+TempInstr      : 1100000000000000  base 10:   49152
+StackPointer   : 0000010000000000  base 10:    1024
+ARegister      : 0000000000000001  base 10:       1
+BRegister      : 0000000000001010  base 10:      10
+CRegister      : 0000000000000000  base 10:       0
+DRegister      : 0000000000000110  base 10:       6
+ERegister      : 0000000000000000  base 10:       0
+FRegister      : 0000000000000000  base 10:       0
+
+Total cycles   : 2677583
+
+Type decimal address to view memory,  q  to quit or  c  to continue: q
+MIC-1 emulator finishing, goodbye
+
+]0;osboxes@ubuntu: ~/COMP3050/Assignment6[01;32mosboxes@ubuntu[00m:[01;34m~/COMP3050/Assignment6[00m$ make clean
+rm -f AddInts.exe linker *.o AddInts/*.o
+
+
+***********************************************************************
+*** Now I'm making an unresolved consolidated object file AddInts.o ***
+***********************************************************************
+
+]0;osboxes@ubuntu: ~/COMP3050/Assignment6[01;32mosboxes@ubuntu[00m:[01;34m~/COMP3050/Assignment6[00m$ make AddInts.o
+gcc -c -g linker.c
+gcc -o linker linker.o
+./masm_mrd -o < AddInts/main.asm > AddInts/main.o
+./masm_mrd -o < AddInts/writestr.asm > AddInts/writestr.o
+./masm_mrd -o < AddInts/readint.asm > AddInts/readint.o
+./masm_mrd -o < AddInts/addints.asm > AddInts/addints.o
+./masm_mrd -o < AddInts/writeint.asm > AddInts/writeint.o
+./masm_mrd -o < AddInts/xbsywt.asm > AddInts/xbsywt.o
+./masm_mrd -o < AddInts/rbsywt.asm > AddInts/rbsywt.o
+./masm_mrd -o < AddInts/data.asm > AddInts/data.o
+./linker -o AddInts/main.o AddInts/writestr.o AddInts/readint.o AddInts/addints.o AddInts/writeint.o AddInts/xbsywt.o AddInts/rbsywt.o AddInts/data.o > AddInts.o
+
+*************************************************
+***     This is the content of AddInts.o      ***
+*************************************************
+
+]0;osboxes@ubuntu: ~/COMP3050/Assignment6[01;32mosboxes@ubuntu[00m:[01;34m~/COMP3050/Assignment6[00m$ cat AddInts.o
+    0  U0000000000000000  on:
+    1  0001111111111111  
+    2  0001111111111101  
+    3  U0111000000000000  str1:
+    4  1111010000000000  
+    5  U1110000000000000  writestr:
+    6  1111110000000001  
+    7  U1110000000000000  readint:
+    8  U0001000000000000  binum1:
+    9  U0111000000000000  str1:
+    10  1111010000000000  
+    11  U1110000000000000  writestr:
+    12  1111110000000001  
+    13  U1110000000000000  readint:
+    14  U0001000000000000  binum2:
+    15  U0000000000000000  binum1:
+    16  1111010000000000  
+    17  U0000000000000000  binum2:
+    18  1111010000000000  
+    19  U1110000000000000  addints:
+    20  1111110000000010  
+    21  U0001000000000000  sum:
+    22  U0100000000000000  prtsum:
+    23  U0111000000000000  str3:
+    24  1111010000000000  
+    25  U1110000000000000  writestr:
+    26  1111110000000001  
+    27  1111111111000000  
+    28  U0111000000000000  str2:
+    29  1111010000000000  
+    30  U1110000000000000  writestr:
+    31  1111110000000001  
+    32  U0000000000000000  sum:
+    33  1111010000000000  
+    34  U1110000000000000  writeint:
+    35  1111110000000001  
+    36  1111111111000000  
+    37  1000000000000001  
+    38  1111000000000000  
+    39  U0010000000000000  c1:
+    40  1001000000000010  
+    41  U1110000000000000  xbsywt:
+    42  1000000000000000  
+    43  U0101000000000000  scrnl:
+    44  0001111111111110  
+    45  U0011000000000000  c255:
+    46  U1100000000000000  scrnl:
+    47  1111011000000000  
+    48  1111111101001000  
+    49  1111010000000000  
+    50  U1110000000000000  xbsywt:
+    51  1111011000000000  
+    52  0001111111111110  
+    53  U0110000000000000  writestr:
+    54  1111110000000001  
+    55  U0000000000000000  cr:
+    56  0001111111111110  
+    57  U1110000000000000  xbsywt:
+    58  U0000000000000000  nl:
+    59  0001111111111110  
+    60  U1110000000000000  xbsywt:
+    61  1111100000000000  
+    62  U1110000000000000  rbsywt:
+    63  0000111111111100  
+    64  U0011000000000000  numoff:
+    65  1111010000000000  
+    66  U1110000000000000  rbsywt:
+    67  0000111111111100  
+    68  U0001000000000000  nxtchr:
+    69  U0011000000000000  nl:
+    70  U0101000000000000  done:
+    71  1111111100001010  
+    72  U0000000000000000  nxtchr:
+    73  U0011000000000000  numoff:
+    74  1010000000000000  
+    75  1001000000000000  
+    76  U0110000000000000  nxtdig:
+    77  1111011000000000  
+    78  1111100000000000  
+    79  1000000000000001  
+    80  1010000000000010  
+    81  1111100000000000  
+    82  1000000000000001  
+    83  U0001000000000000  temp:
+    84  U0000000000000000  c10:
+    85  1111010000000000  
+    86  U0000000000000000  temp:
+    87  1111010000000000  
+    88  1111111110000000  
+    89  U0000000000000000  lpcnt:
+    90  U0010000000000000  c1:
+    91  U0001000000000000  lpcnt:
+    92  1000000000000001  
+    93  U0010000000000000  numoff:
+    94  1111010000000000  
+    95  U0000000000000000  psum:
+    96  1111001000000000  
+    97  U0010000000000000  c1:
+    98  U0001000000000000  psum:
+    99  1000000000000000  
+    100  1111110000000100  
+    101  U0101000000000000  wrloop:
+    102  U0001000000000000  temp:
+    103  U0110000000000000  cnvrt:
+    104  U0000000000000000  lpcnt:
+    105  U0101000000000000  icrnl:
+    106  U0011000000000000  c1:
+    107  U0001000000000000  lpcnt:
+    108  U0000000000000000  psum:
+    109  U0011000000000000  c1:
+    110  U0001000000000000  psum:
+    111  1111000000000000  
+    112  U1110000000000000  xbsywt:
+    113  1111011000000000  
+    114  0001111111111110  
+    115  U0110000000000000  wrloop:
+    116  U0000000000000000  cr:
+    117  0001111111111110  
+    118  U1110000000000000  xbsywt:
+    119  U0000000000000000  nl:
+    120  0001111111111110  
+    121  U1110000000000000  xbsywt:
+    122  1111100000000000  
+    123  0000111111111111  
+    124  U0011000000000000  mask:
+    125  U1100000000000000  xbsywt:
+    126  1111100000000000  
+    127  0000111111111101  
+    128  U0011000000000000  mask:
+    129  U1100000000000000  rbsywt:
+    130  1111100000000000  
+    131  0000000000001000  
+    132  0000000000001010  
+    133  0000000000001010  
+    134  0000000000001101  
+    135  0000000000110000  
+    136  1111111111111111  
+    137  0000000000000001  
+    138  0000000000001010  
+    139  0000000011111111  
+    140  0000000000000000  
+    141  0000000000000000  
+    142  0000000000000000  
+    143  0000000000000000  
+    144  0000000000000000  
+    145  0000000000000000  
+    146  0000000000000000  
+    147  U0000000000000000  asum:
+    148  0100110001010000  
+    149  0100000101000101  
+    150  0100010101010011  
+    151  0100010100100000  
+    152  0101010001001110  
+    153  0101001001000101  
+    154  0100000100100000  
+    155  0010000001001110  
+    156  0100111001001001  
+    157  0100010101010100  
+    158  0100010101000111  
+    159  0010000001010010  
+    160  0100010101000010  
+    161  0101011101010100  
+    162  0100010101000101  
+    163  0010000001001110  
+    164  0010000000110001  
+    165  0100111001000001  
+    166  0010000001000100  
+    167  0011001000110011  
+    168  0011011000110111  
+    169  0000000000110111  
+    170  0100100001010100  
+    171  0010000001000101  
+    172  0101010101010011  
+    173  0010000001001101  
+    174  0100011001001111  
+    175  0101010000100000  
+    176  0100010101001000  
+    177  0100010101010011  
+    178  0101010000100000  
+    179  0100111101010111  
+    180  0100100100100000  
+    181  0101010001001110  
+    182  0100011101000101  
+    183  0101001001000101  
+    184  0010000001010011  
+    185  0101001101001001  
+    186  0000000000111010  
+    187  0101011001001111  
+    188  0101001001000101  
+    189  0100110001000110  
+    190  0101011101001111  
+    191  0010000000101100  
+    192  0100111101001110  
+    193  0101001100100000  
+    194  0100110101010101  
+    195  0101000000100000  
+    196  0101001101001111  
+    197  0100100101010011  
+    198  0100110001000010  
+    199  0000000001000101  
+    200  0000000000000000  
+    201  0000000000000000  
+    202  0000000000000000  
+    203  0000000000000000  
+    204  0000000000000000  
+  4096 x
+    on:                        131
+    mask:                      132
+    nl:                        133
+    cr:                        134
+    numoff:                    135
+    cn1:                       136
+    c1:                        137
+    c10:                       138
+    c255:                      139
+    nxtchr:                    140
+    binum1:                    141
+    binum2:                    142
+    sum:                       143
+    temp:                      144
+    lpcnt:                     145
+    pstr:                      146
+    psum:                      147
+    str1:                      148
+    str2:                      170
+    str3:                      187
+    asum:                      200
+    rbsywt:                    127
+    xbsywt:                    123
+    writeint:                   82
+    cnvrt:                      84
+    wrloop:                    104
+    icrnl:                     116
+    addints:                    79
+    readint:                    62
+    nxtdig:                     66
+    done:                       77
+    writestr:                   37
+    scrnl:                      54
+    start:                       0
+    prtsum:                     28
+
+]0;osboxes@ubuntu: ~/COMP3050/Assignment6[01;32mosboxes@ubuntu[00m:[01;34m~/COMP3050/Assignment6[00m$ exit
+exit
+
+Script done on 2020-11-30 22:07:40-0500

@@ -1,0 +1,41 @@
+Script started on 2020-12-08 16:17:20-0500
+]0;osboxes@ubuntu: ~/COMP3050/Assignment7[01;32mosboxes@ubuntu[00m:[01;34m~/COMP3050/Assignment7[00m$ make
+gcc -c -g -Wall -Werror  main.c
+gcc -o a7 main.o
+]0;osboxes@ubuntu: ~/COMP3050/Assignment7[01;32mosboxes@ubuntu[00m:[01;34m~/COMP3050/Assignment7[00m$ ./a7
+
+This is the Parent process report:
+
+PARENT:  Process ID is:		6289
+PARENT:  Process parent ID is:	6273
+PARENT:  Real UID is:		1000
+PARENT:  Real GID is:		1000
+PARENT:  Effective UID is:	1000
+PARENT:  Effective GID is:	1000
+PARENT:  Process priority:	0
+
+PARENT:  will now create a child, write pipe, and do a normal termination
+
+PARENT: created Child with PID 6290
+PARENT: ### Goodbye ###
+
+This is the Child process report:
+
+CHILD:  Process ID is:		6290
+CHILD:  Process parent ID is:	6289
+CHILD:  Real UID is:		1000
+CHILD:  Real GID is:		1000
+CHILD:  Effective UID is:	1000
+CHILD:  Effective GID is:	1000
+CHILD:  Process priority:	0
+
+CHILD: about to read pipe and report parent message:
+CHILD: parent's message is: 
+This is the pipe message from the parent with PID 6289  <<== child read message
+
+CHILD: Process parent ID is now:   4976
+CHILD: ### Goodbye ###
+]0;osboxes@ubuntu: ~/COMP3050/Assignment7[01;32mosboxes@ubuntu[00m:[01;34m~/COMP3050/Assignment7[00m$ exit
+exit
+
+Script done on 2020-12-08 16:17:37-0500

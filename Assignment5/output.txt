@@ -1,0 +1,180 @@
+Script started on 2020-11-05 13:35:14-0500
+]0;osboxes@ubuntu: ~/COMP3050/Assignment5[01;32mosboxes@ubuntu[00m:[01;34m~/COMP3050/Assignment5[00m$ ./masm < AddInput.asm > AddInput.obj
+]0;osboxes@ubuntu: ~/COMP3050/Assignment5[01;32mosboxes@ubuntu[00m:[01;34m~/COMP3050/Assignment5[00m$ ./mic1 prom.dat AddInput.as[K[Kobj 0 2048
+
+Read in 149 micro instructions
+Read in 187 machine instructions
+Starting PC is : 0000000000000000  base 10:       0
+Starting SP is : 0000100000000000  base 10:    2048
+
+PLEASE ENTER AN INTEGER BETWEEN 1 AND 32767
+
+235
+PLEASE ENTER AN INTEGER BETWEEN 1 AND 32767
+
+0
+THE SUM OF THESE TWO INTEGERS IS:
+
+235                                                 <<== first sum 235 + 0 = 235
+
+
+ProgramCounter : 0000000001001101  base 10:      77
+Accumulator    : 0000000000000000  base 10:       0     <<== valid addition
+InstructionReg : 1111111111000000  base 10:   65472
+TempInstr      : 1100000000000000  base 10:   49152
+StackPointer   : 0000011111110100  base 10:    2036
+ARegister      : 1111111111110101  base 10:   65525
+BRegister      : 1111111111111111  base 10:   65535
+CRegister      : 0000000000000000  base 10:       0
+DRegister      : 0000000000000010  base 10:       2
+ERegister      : 0000000000000000  base 10:       0
+FRegister      : 0000000000000000  base 10:       0
+
+Total cycles   : 852210
+
+Type decimal address to view memory,  q  to quit or  c  to continue: q
+MIC-1 emulator finishing, goodbye
+
+]0;osboxes@ubuntu: ~/COMP3050/Assignment5[01;32mosboxes@ubuntu[00m:[01;34m~/COMP3050/Assignment5[00m$ ./mic1 prom.dat AddInput.obj 0 024[K[K[K2046[K8
+
+Read in 149 micro instructions
+Read in 187 machine instructions
+Starting PC is : 0000000000000000  base 10:       0
+Starting SP is : 0000100000000000  base 10:    2048
+
+PLEASE ENTER AN INTEGER BETWEEN 1 AND 32767
+
+16341
+PLEASE ENTER AN INTEGER BETWEEN 1 AND 32767
+
+957
+THE SUM OF THESE TWO INTEGERS IS:
+
+17298                                               <<== 16341 + 957 = 17298
+
+
+ProgramCounter : 0000000001001101  base 10:      77
+Accumulator    : 0000000000000000  base 10:       0     <<== valid addition
+InstructionReg : 1111111111000000  base 10:   65472
+TempInstr      : 1100000000000000  base 10:   49152
+StackPointer   : 0000011111101100  base 10:    2028
+ARegister      : 1111111111110101  base 10:   65525
+BRegister      : 1111111111111111  base 10:   65535
+CRegister      : 0000000000000000  base 10:       0
+DRegister      : 0000000000000001  base 10:       1
+ERegister      : 0000000000000000  base 10:       0
+FRegister      : 0000000000000000  base 10:       0
+
+Total cycles   : 1280093
+
+Type decimal address to view memory,  q  to quit or  c  to continue: q
+MIC-1 emulator finishing, goodbye
+
+]0;osboxes@ubuntu: ~/COMP3050/Assignment5[01;32mosboxes@ubuntu[00m:[01;34m~/COMP3050/Assignment5[00m$ ./mic1 prom.dat AddInput.obj 0 2048
+
+Read in 149 micro instructions
+Read in 187 machine instructions
+Starting PC is : 0000000000000000  base 10:       0
+Starting SP is : 0000100000000000  base 10:    2048
+
+PLEASE ENTER AN INTEGER BETWEEN 1 AND 32767
+
+23786
+PLEASE ENTER AN INTEGER BETWEEN 1 AND 32767
+
+12400
+OVERFLOW, NO SUM POSSIBLE                   <<== overflow occurred, number 
+                                                exceeds positive signed 16 bits
+
+
+ProgramCounter : 0000000001010010  base 10:      82
+Accumulator    : 1111111111111111  base 10:   65535     <<== invalid addition
+InstructionReg : 1111111111000000  base 10:   65472
+TempInstr      : 1100000000000000  base 10:   49152
+StackPointer   : 0000100000000000  base 10:    2048
+ARegister      : 1111111111110101  base 10:   65525
+BRegister      : 1111111111111111  base 10:   65535
+CRegister      : 0011000001110000  base 10:   12400
+DRegister      : 0000000000000000  base 10:       0
+ERegister      : 0000000000000000  base 10:       0
+FRegister      : 0000000000000000  base 10:       0
+
+Total cycles   : 1159278
+
+Type decimal address to view memory,  q  to quit or  c  to continue: q
+MIC-1 emulator finishing, goodbye
+
+]0;osboxes@ubuntu: ~/COMP3050/Assignment5[01;32mosboxes@ubuntu[00m:[01;34m~/COMP3050/Assignment5[00m$ ./mic1 prom.dat AddInput.obj 0 2048
+
+Read in 149 micro instructions
+Read in 187 machine instructions
+Starting PC is : 0000000000000000  base 10:       0
+Starting SP is : 0000100000000000  base 10:    2048
+
+PLEASE ENTER AN INTEGER BETWEEN 1 AND 32767
+
+12
+PLEASE ENTER AN INTEGER BETWEEN 1 AND 32767
+
+23
+THE SUM OF THESE TWO INTEGERS IS:
+
+35                                                  <<== 12 + 23 = 35
+
+
+ProgramCounter : 0000000001001101  base 10:      77
+Accumulator    : 0000000000000000  base 10:       0     <<== valid addition
+InstructionReg : 1111111111000000  base 10:   65472
+TempInstr      : 1100000000000000  base 10:   49152
+StackPointer   : 0000011111111000  base 10:    2040
+ARegister      : 1111111111110101  base 10:   65525
+BRegister      : 1111111111111111  base 10:   65535
+CRegister      : 0000000000000000  base 10:       0
+DRegister      : 0000000000000011  base 10:       3
+ERegister      : 0000000000000000  base 10:       0
+FRegister      : 0000000000000000  base 10:       0
+
+Total cycles   : 3585019
+
+Type decimal address to view memory,  q  to quit or  c  to continue: q
+MIC-1 emulator finishing, goodbye
+
+]0;osboxes@ubuntu: ~/COMP3050/Assignment5[01;32mosboxes@ubuntu[00m:[01;34m~/COMP3050/Assignment5[00m$ ./mic1 prom.dat AddInput.obj 0 2048
+
+Read in 149 micro instructions
+Read in 187 machine instructions
+Starting PC is : 0000000000000000  base 10:       0
+Starting SP is : 0000100000000000  base 10:    2048
+
+PLEASE ENTER AN INTEGER BETWEEN 1 AND 32767
+
+1
+PLEASE ENTER AN INTEGER BETWEEN 1 AND 32767
+
+1343
+THE SUM OF THESE TWO INTEGERS IS:
+
+1344                                                <<== 1 + 1343 = 1344
+
+
+ProgramCounter : 0000000001001101  base 10:      77
+Accumulator    : 0000000000000000  base 10:       0     <<== valid addition
+InstructionReg : 1111111111000000  base 10:   65472
+TempInstr      : 1100000000000000  base 10:   49152
+StackPointer   : 0000011111110000  base 10:    2032
+ARegister      : 1111111111110101  base 10:   65525
+BRegister      : 1111111111111111  base 10:   65535
+CRegister      : 0000000000000000  base 10:       0
+DRegister      : 0000000000000001  base 10:       1
+ERegister      : 0000000000000000  base 10:       0
+FRegister      : 0000000000000000  base 10:       0
+
+Total cycles   : 701439
+
+Type decimal address to view memory,  q  to quit or  c  to continue: q
+MIC-1 emulator finishing, goodbye
+
+]0;osboxes@ubuntu: ~/COMP3050/Assignment5[01;32mosboxes@ubuntu[00m:[01;34m~/COMP3050/Assignment5[00m$ exit
+exit
+
+Script done on 2020-11-05 13:37:39-0500

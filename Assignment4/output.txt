@@ -1,0 +1,540 @@
+Script started on 2020-10-27 13:14:39-0400
+
+//**********************************************
+// BUILDING THE FILES (MAKE, MCC, MASM COMMANDS)
+//**********************************************
+]0;osboxes@ubuntu: ~/COMP3050/Assignment4[01;32mosboxes@ubuntu[00m:[01;34m~/COMP3050/Assignment4[00m$ make
+gcc -c -g mic1symasm.c
+[01m[Kmic1symasm.c:[m[K In function ‘[01m[Kmain[m[K’:
+[01m[Kmic1symasm.c:98:2:[m[K [01;35m[Kwarning: [m[Kimplicit declaration of function ‘[01m[Kunlink[m[K’; did you mean ‘[01m[Kunix[m[K’? [[01;35m[K-Wimplicit-function-declaration[m[K]
+  [01;35m[Kunlink[m[K("/tmp/passone");
+
+  [01;35m[K^~~~~~[m[K
+  [32m[Kunix[m[K
+[01m[Kmic1symasm.c:467:2:[m[K [01;35m[Kwarning: [m[K‘[01m[Kreturn[m[K’ with no value, in function returning non-void
+  [01;35m[Kreturn[m[K;
+
+  [01;35m[K^~~~~~[m[K
+[01m[Kmic1symasm.c:87:5:[m[K [01;36m[Knote: [m[Kdeclared here
+ int [01;36m[Kmain[m[K(int argc, char *argv[])
+
+     [01;36m[K^~~~[m[K
+[01m[Kmic1symasm.c:[m[K In function ‘[01m[Kdump_table[m[K’:
+[01m[Kmic1symasm.c:483:2:[m[K [01;35m[Kwarning: [m[Kimplicit declaration of function ‘[01m[Kwait[m[K’; did you mean ‘[01m[Kmain[m[K’? [[01;35m[K-Wimplicit-function-declaration[m[K]
+  [01;35m[Kwait[m[K(NULL);
+
+  [01;35m[K^~~~[m[K
+  [32m[Kmain[m[K
+flex mic1symasm.ll
+gcc -c -g lex.yy.c
+gcc -o masm mic1symasm.o lex.yy.o
+]0;osboxes@ubuntu: ~/COMP3050/Assignment4[01;32mosboxes@ubuntu[00m:[01;34m~/COMP3050/Assignment4[00m$ ./mcc <[Kmicrocod[K[K[K[K[K[K[K[K< mo[Kicrocode.mc ?[K> prom.dat
+Microcode Compiler - Version 1.0 - Richard Boccuzzi
+]0;osboxes@ubuntu: ~/COMP3050/Assignment4[01;32mosboxes@ubuntu[00m:[01;34m~/COMP3050/Assignment4[00m$ ./masm a4[K[K< a4_div_test.asm > a4)[K)d[K[K_div_test.ob 
+j
+]0;osboxes@ubuntu: ~/COMP3050/Assignment4[01;32mosboxes@ubuntu[00m:[01;34m~/COMP3050/Assignment4[00m$ ./masm < a4_div_test.asm > a4_div_test.obj
+j
+[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C_test.asm > a4_div_test.obj 
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1P
+
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1P[1@mu_test.asm > a4_div_test.obj [A
+]0;osboxes@ubuntu: ~/COMP3050/Assignment4[01;32mosboxes@ubuntu[00m:[01;34m~/COMP3050/Assignment4[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[Cl_test.asm > a4_div_test.obj
+j[A
+]0;osboxes@ubuntu: ~/COMP3050/Assignment4[01;32mosboxes@ubuntu[00m:[01;34m~/COMP3050/Assignment4[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ct_test.asm > a4_div_test.obj[A
+]0;osboxes@ubuntu: ~/COMP3050/Assignment4[01;32mosboxes@ubuntu[00m:[01;34m~/COMP3050/Assignment4[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C_test.obj[K[A
+]0;osboxes@ubuntu: ~/COMP3050/Assignment4[01;32mosboxes@ubuntu[00m:[01;34m~/COMP3050/Assignment4[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C_test.obj 
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1P_test.obj
+
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cm_test.obj [A
+]0;osboxes@ubuntu: ~/COMP3050/Assignment4[01;32mosboxes@ubuntu[00m:[01;34m~/COMP3050/Assignment4[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cu_test.obj
+j[A
+]0;osboxes@ubuntu: ~/COMP3050/Assignment4[01;32mosboxes@ubuntu[00m:[01;34m~/COMP3050/Assignment4[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cl_test.obj[A
+]0;osboxes@ubuntu: ~/COMP3050/Assignment4[01;32mosboxes@ubuntu[00m:[01;34m~/COMP3050/Assignment4[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ct_test.obj[A
+]0;osboxes@ubuntu: ~/COMP3050/Assignment4[01;32mosboxes@ubuntu[00m:[01;34m~/COMP3050/Assignment4[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+
+
+]0;osboxes@ubuntu: ~/COMP3050/Assignment4[01;32mosboxes@ubuntu[00m:[01;34m~/COMP3050/Assignment4[00m$ ./masm < a4_mult_test.asm > a4_mult_test.o
+obj
+[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C_test.asm > a4_mult_test.ob[1Pj[A
+]0;osboxes@ubuntu: ~/COMP3050/Assignment4[01;32mosboxes@ubuntu[00m:[01;34m~/COMP3050/Assignment4[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C_test.asm > a4_mult_test.obj[K[A
+]0;osboxes@ubuntu: ~/COMP3050/Assignment4[01;32mosboxes@ubuntu[00m:[01;34m~/COMP3050/Assignment4[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C_test.asm > a4_mult_test.obj 
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1P
+
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cr_test.asm > a4_mult_test.obj [A
+]0;osboxes@ubuntu: ~/COMP3050/Assignment4[01;32mosboxes@ubuntu[00m:[01;34m~/COMP3050/Assignment4[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[Cs_test.asm > a4_mult_test.obj
+j[A
+]0;osboxes@ubuntu: ~/COMP3050/Assignment4[01;32mosboxes@ubuntu[00m:[01;34m~/COMP3050/Assignment4[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[Ch_test.asm > a4_mult_test.obj[A
+]0;osboxes@ubuntu: ~/COMP3050/Assignment4[01;32mosboxes@ubuntu[00m:[01;34m~/COMP3050/Assignment4[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ci_test.asm > a4_mult_test.obj[A
+]0;osboxes@ubuntu: ~/COMP3050/Assignment4[01;32mosboxes@ubuntu[00m:[01;34m~/COMP3050/Assignment4[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cf_test.asm > a4_mult_test.obj[A
+]0;osboxes@ubuntu: ~/COMP3050/Assignment4[01;32mosboxes@ubuntu[00m:[01;34m~/COMP3050/Assignment4[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ct_test.asm > a4_mult_test.obj[A
+]0;osboxes@ubuntu: ~/COMP3050/Assignment4[01;32mosboxes@ubuntu[00m:[01;34m~/COMP3050/Assignment4[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ct_test.[1Pobj[A
+]0;osboxes@ubuntu: ~/COMP3050/Assignment4[01;32mosboxes@ubuntu[00m:[01;34m~/COMP3050/Assignment4[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ct_test.o[1Pbj[A
+]0;osboxes@ubuntu: ~/COMP3050/Assignment4[01;32mosboxes@ubuntu[00m:[01;34m~/COMP3050/Assignment4[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ct_test.ob[1Pj[A
+]0;osboxes@ubuntu: ~/COMP3050/Assignment4[01;32mosboxes@ubuntu[00m:[01;34m~/COMP3050/Assignment4[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Crt_test.obj[A
+]0;osboxes@ubuntu: ~/COMP3050/Assignment4[01;32mosboxes@ubuntu[00m:[01;34m~/COMP3050/Assignment4[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cst_test.obj[A
+]0;osboxes@ubuntu: ~/COMP3050/Assignment4[01;32mosboxes@ubuntu[00m:[01;34m~/COMP3050/Assignment4[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cht_test.obj[A
+]0;osboxes@ubuntu: ~/COMP3050/Assignment4[01;32mosboxes@ubuntu[00m:[01;34m~/COMP3050/Assignment4[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cit_test.obj[A
+]0;osboxes@ubuntu: ~/COMP3050/Assignment4[01;32mosboxes@ubuntu[00m:[01;34m~/COMP3050/Assignment4[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cft_test.obj[A
+]0;osboxes@ubuntu: ~/COMP3050/Assignment4[01;32mosboxes@ubuntu[00m:[01;34m~/COMP3050/Assignment4[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+
+
+//*************************************
+//             DIV TEST
+//*************************************
+]0;osboxes@ubuntu: ~/COMP3050/Assignment4[01;32mosboxes@ubuntu[00m:[01;34m~/COMP3050/Assignment4[00m$ ./mic1 or[K[Kprom.dat a4)[K_div_test.obj 0 2000
+
+Read in 149 micro instructions
+Read in 52 machine instructions
+Starting PC is : 0000000000000000  base 10:       0
+Starting SP is : 0000011111010000  base 10:    2000
+
+
+ProgramCounter : 0000000000000110  base 10:       6
+Accumulator    : 0000000000000000  base 10:       0    // LEGAL DIVISION
+InstructionReg : 1111111111000000  base 10:   65472
+TempInstr      : 1100000000000000  base 10:   49152
+StackPointer   : 0000011111001100  base 10:    1996
+ARegister      : 1111111100101111  base 10:   65327
+BRegister      : 0001010000100000  base 10:    5152
+CRegister      : 0000000000000000  base 10:       0
+DRegister      : 0001001101001111  base 10:    4943
+ERegister      : 1111111111111111  base 10:   65535
+FRegister      : 1111111111111111  base 10:   65535
+
+Total cycles   : 98
+
+Type decimal address to view memory,  q  to quit or  c  to continue: 2000
+     the location 2000 has value 1111111111111111 , or 65535  or signed     -1
+Type  <Enter>  to continue debugging
+Type        q  to quit
+Type        f for forward range
+Type        b for backward range: b
+Type the number of reverse locations to dump: 4
+     the location 1999 has value 1110101111100000 , or 60384  or signed  -5152  // DIVISOR LARGER THAN DIVIDEND
+     the location 1998 has value 0001001101001111 , or  4943  or signed   4943  // DIVIDEND
+     the location 1997 has value 0001001101001111 , or  4943  or signed   4943  // REMAINDER IS DIVIDEND IN THIS CASE
+     the location 1996 has value 0000000000000000 , or     0  or signed      0  // QUOTIENT IS ZERO
+Type decimal address to view memory,  q  to quit or  c  to continue: c
+
+The new PC is  : 0000000000000110
+
+
+ProgramCounter : 0000000000001100  base 10:      12
+Accumulator    : 1111111111111111  base 10:   65535    // ILLEGAL DIVISION
+InstructionReg : 1111111111000000  base 10:   65472
+TempInstr      : 1100000000000000  base 10:   49152
+StackPointer   : 0000011111001000  base 10:    1992
+ARegister      : 0000000110110101  base 10:     437
+BRegister      : 0000000000000000  base 10:       0
+CRegister      : 0000000000000000  base 10:       0
+DRegister      : 1111111111111111  base 10:   65535
+ERegister      : 1111111111111111  base 10:   65535
+FRegister      : 1111111111111111  base 10:   65535
+
+Total cycles   : 191
+
+Type decimal address to view memory,  q  to quit or  c  to continue: 1996
+     the location 1996 has value 0000000000000000 , or     0  or signed      0
+Type  <Enter>  to continue debugging
+Type        q  to quit
+Type        f for forward range
+Type        b for backward range: b
+Type the number of reverse locations to dump: 4
+     the location 1995 has value 0000000000000000 , or     0  or signed      0  // ZERO DIVISOR IS ILLEGAL
+     the location 1994 has value 0000000110110101 , or   437  or signed    437
+     the location 1993 has value 1111111111111111 , or 65535  or signed     -1  // RESULT OF DIVISION BY ZERO
+     the location 1992 has value 0000000000000000 , or     0  or signed      0
+Type decimal address to view memory,  q  to quit or  c  to continue: c
+
+The new PC is  : 0000000000001100
+
+
+ProgramCounter : 0000000000010010  base 10:      18
+Accumulator    : 0000000000000000  base 10:       0    // LEGAL DIVISION
+InstructionReg : 1111111111000000  base 10:   65472
+TempInstr      : 1100000000000000  base 10:   49152
+StackPointer   : 0000011111000100  base 10:    1988
+ARegister      : 1111111111110111  base 10:   65527
+BRegister      : 1111111111110000  base 10:   65520
+CRegister      : 0000001000000000  base 10:     512
+DRegister      : 0000000000000111  base 10:       7
+ERegister      : 1111111111111110  base 10:   65534
+FRegister      : 1111111111111111  base 10:   65535
+
+Total cycles   : 1821
+
+Type decimal address to view memory,  q  to quit or  c  to continue: 1992
+     the location 1992 has value 0000000000000000 , or     0  or signed      0
+Type  <Enter>  to continue debugging
+Type        q  to quit
+Type        f for forward range
+Type        b for backward range: b
+Type the number of reverse locations to dump: 4
+     the location 1991 has value 1111111111110000 , or 65520  or signed    -16
+     the location 1990 has value 1101111111111001 , or 57337  or signed  -8199
+     the location 1989 has value 0000000000000111 , or     7  or signed      7
+     the location 1988 has value 0000001000000000 , or   512  or signed    512  // NEGATIVE DIVIDEND AND DIVISOR = POSITIVE QUOTIENT
+Type decimal address to view memory,  q  to quit or  c  to continue: c
+
+The new PC is  : 0000000000010010
+
+
+ProgramCounter : 0000000000011000  base 10:      24
+Accumulator    : 0000000000000000  base 10:       0    // LEGAL DIVISION
+InstructionReg : 1111111111000000  base 10:   65472
+TempInstr      : 1100000000000000  base 10:   49152
+StackPointer   : 0000011111000000  base 10:    1984
+ARegister      : 1111111111111111  base 10:   65535
+BRegister      : 1111111100000000  base 10:   65280
+CRegister      : 1111111110100001  base 10:   65441
+DRegister      : 0000000011111111  base 10:     255
+ERegister      : 1111111111111111  base 10:   65535
+FRegister      : 1111111111111111  base 10:   65535
+
+Total cycles   : 2201
+
+Type decimal address to view memory,  q  to quit or  c  to continue: 1998  88
+     the location 1988 has value 0000001000000000 , or   512  or signed    512
+Type  <Enter>  to continue debugging
+Type        q  to quit
+Type        f for forward range
+Type        b for backward range: b
+Type the number of reverse locations to dump: 4
+     the location 1987 has value 1111111100000000 , or 65280  or signed   -256
+     the location 1986 has value 0101111111111111 , or 24575  or signed  24575
+     the location 1985 has value 0000000011111111 , or   255  or signed    255
+     the location 1984 has value 1111111110100001 , or 65441  or signed    -95
+Type decimal address to view memory,  q  to quit or  c  to continue: c
+
+The new PC is  : 0000000000011000
+
+
+ProgramCounter : 0000000000011110  base 10:      30
+Accumulator    : 0000000000000000  base 10:       0    // LEGAL DIVISION
+InstructionReg : 1111111111000000  base 10:   65472
+TempInstr      : 1100000000000000  base 10:   49152
+StackPointer   : 0000011110111100  base 10:    1980
+ARegister      : 1111111000000001  base 10:   65025
+BRegister      : 0000000111111111  base 10:     511
+CRegister      : 0000000000000000  base 10:       0
+DRegister      : 0000000000000000  base 10:       0
+ERegister      : 0000000000000000  base 10:       0
+FRegister      : 0000000000000000  base 10:       0
+
+Total cycles   : 2300
+
+Type decimal address to view memory,  q  to quit or  c  to continue: 1984
+     the location 1984 has value 1111111110100001 , or 65441  or signed    -95
+Type  <Enter>  to continue debugging
+Type        q  to quit
+Type        f for forward range
+Type        b for backward range: b
+Type the number of reverse locations to dump: 4
+     the location 1983 has value 0000000111111111 , or   511  or signed    511
+     the location 1982 has value 0000000000000000 , or     0  or signed      0
+     the location 1981 has value 0000000000000000 , or     0  or signed      0
+     the location 1980 has value 0000000000000000 , or     0  or signed      0  // ZERO DIVIDEND AND NON-ZERO DIVISOR = ZERO QUOTIENT AND REMAINDER
+Type decimal address to view memory,  q  to quit or  c  to continue: c
+
+The new PC is  : 0000000000011110
+
+
+ProgramCounter : 0000000000100100  base 10:      36
+Accumulator    : 0000000000000000  base 10:       0    // LEGAL DIVISION
+InstructionReg : 1111111111000000  base 10:   65472
+TempInstr      : 1100000000000000  base 10:   49152
+StackPointer   : 0000011110111000  base 10:    1976
+ARegister      : 1111111111111101  base 10:   65533
+BRegister      : 1111111111101111  base 10:   65519
+CRegister      : 0000000111100001  base 10:     481
+DRegister      : 0000000000001110  base 10:      14
+ERegister      : 0000000000000000  base 10:       0
+FRegister      : 0000000000000000  base 10:       0
+
+Total cycles   : 3839
+
+Type decimal address to view memory,  q  to quit or  c  to continue: 199 80
+     the location 1980 has value 0000000000000000 , or     0  or signed      0
+Type  <Enter>  to continue debugging
+Type        q  to quit
+Type        f for forward range
+Type        b for backward range: b
+Type the number of reverse locations to dump: 4
+     the location 1979 has value 0000000000010001 , or    17  or signed     17
+     the location 1978 has value 0001111111111111 , or  8191  or signed   8191
+     the location 1977 has value 0000000000001110 , or    14  or signed     14
+     the location 1976 has value 0000000111100001 , or   481  or signed    481
+Type decimal address to view memory,  q  to quit or  c  to continue: q
+MIC-1 emulator finishing, goodbye
+
+
+//*************************************
+//             MULT TEST
+//*************************************
+]0;osboxes@ubuntu: ~/COMP3050/Assignment4[01;32mosboxes@ubuntu[00m:[01;34m~/COMP3050/Assignment4[00m$ ./mic1 prom.dat a4_div_test.obj 0 2000[1P[1P[1P[1@m[1@u[1@l[1@t
+
+Read in 149 micro instructions
+Read in 36 machine instructions
+Starting PC is : 0000000000000000  base 10:       0
+Starting SP is : 0000011111010000  base 10:    2000
+
+
+ProgramCounter : 0000000000000100  base 10:       4
+Accumulator    : 0000000000000000  base 10:       0    // NO OVERFLOW
+InstructionReg : 1111111111000000  base 10:   65472
+TempInstr      : 1100000000000000  base 10:   49152
+StackPointer   : 0000011111001111  base 10:    1999
+ARegister      : 0000100111101110  base 10:    2542
+BRegister      : 1111111111111111  base 10:   65535
+CRegister      : 0000000000000000  base 10:       0
+DRegister      : 0000000000000000  base 10:       0
+ERegister      : 0000000000000000  base 10:       0
+FRegister      : 0000000000000000  base 10:       0
+
+Total cycles   : 60
+
+Type decimal address to view memory,  q  to quit or  c  to continue: 1999
+     the location 1999 has value 0000000000000000 , or     0  or signed      0  // RESULT OF MULT 0
+Type  <Enter>  to continue debugging
+Type        q  to quit
+Type        f for forward range
+Type        b for backward range: 
+Type decimal address to view memory,  q  to quit or  c  to continue: c
+
+The new PC is  : 0000000000000100
+
+
+ProgramCounter : 0000000000001000  base 10:       8
+Accumulator    : 0000000000000000  base 10:       0    // NO OVERFLOW
+InstructionReg : 1111111111000000  base 10:   65472
+TempInstr      : 1100000000000000  base 10:   49152
+StackPointer   : 0000011111001110  base 10:    1998
+ARegister      : 1111111010010110  base 10:   65174
+BRegister      : 1111111111111111  base 10:   65535
+CRegister      : 1100101110101110  base 10:   52142
+DRegister      : 1111111111111111  base 10:   65535
+ERegister      : 0000000000000000  base 10:       0
+FRegister      : 0000000000000000  base 10:       0
+
+Total cycles   : 230
+
+Type decimal address to view memory,  q  to quit or  c  to continue: 1998
+     the location 1998 has value 1100101110101110 , or 52142  or signed -13394  // RESULT OF MULT 37
+Type  <Enter>  to continue debugging
+Type        q  to quit
+Type        f for forward range
+Type        b for backward range: 
+Type decimal address to view memory,  q  to quit or  c  to continue: c
+
+The new PC is  : 0000000000001000
+
+
+ProgramCounter : 0000000000001100  base 10:      12
+Accumulator    : 0000000000000000  base 10:       0    // NO OVERFLOW
+InstructionReg : 1111111111000000  base 10:   65472
+TempInstr      : 1100000000000000  base 10:   49152
+StackPointer   : 0000011111001101  base 10:    1997
+ARegister      : 0000001000001000  base 10:     520
+BRegister      : 1111111111111111  base 10:   65535
+CRegister      : 0111111111111000  base 10:   32760
+DRegister      : 0000000000000000  base 10:       0
+ERegister      : 0000000000000000  base 10:       0
+FRegister      : 0000000000000000  base 10:       0
+
+Total cycles   : 479
+
+Type decimal address to view memory,  q  to quit or  c  to continue: 1997
+     the location 1997 has value 0111111111111000 , or 32760  or signed  32760  // RESULT OF MULT 63
+Type  <Enter>  to continue debugging
+Type        q  to quit
+Type        f for forward range
+Type        b for backward range: 
+Type decimal address to view memory,  q  to quit or  c  to continue: c
+
+The new PC is  : 0000000000001100
+
+
+ProgramCounter : 0000000000010000  base 10:      16
+Accumulator    : 0000000000000000  base 10:       0    // NO OVERFLOW
+InstructionReg : 1111111111000000  base 10:   65472
+TempInstr      : 1100000000000000  base 10:   49152
+StackPointer   : 0000011111001100  base 10:    1996
+ARegister      : 1111100000000000  base 10:   63488
+BRegister      : 1111111111111111  base 10:   65535
+CRegister      : 1000000000000000  base 10:   32768
+DRegister      : 1111111111111111  base 10:   65535
+ERegister      : 0000000000000000  base 10:       0
+FRegister      : 0000000000000000  base 10:       0
+
+Total cycles   : 586
+
+Type decimal address to view memory,  q  to quit or  c  to continue: 1996
+     the location 1996 has value 1000000000000000 , or 32768  or signed -32768  // RESULT OF MULT 16
+Type  <Enter>  to continue debugging
+Type        q  to quit
+Type        f for forward range
+Type        b for backward range: 
+Type decimal address to view memory,  q  to quit or  c  to continue: c
+
+The new PC is  : 0000000000010000
+
+
+ProgramCounter : 0000000000010100  base 10:      20
+Accumulator    : 1111111111111111  base 10:   65535    // OVERFLOW
+InstructionReg : 1111111111000000  base 10:   65472
+TempInstr      : 1100000000000000  base 10:   49152
+StackPointer   : 0000011111001011  base 10:    1995
+ARegister      : 0000001011001011  base 10:     715
+BRegister      : 0000000000000011  base 10:       3
+CRegister      : 1000000001111010  base 10:   32890
+DRegister      : 0000000000000000  base 10:       0
+ERegister      : 0000000000000000  base 10:       0
+FRegister      : 0000000000000000  base 10:       0
+
+Total cycles   : 781
+
+Type decimal address to view memory,  q  to quit or  c  to continue: 1995
+     the location 1995 has value 0000001011001011 , or   715  or signed    715  // VALUE ON STACK UNCHANGED
+Type  <Enter>  to continue debugging
+Type        q  to quit
+Type        f for forward range
+Type        b for backward range: 
+Type decimal address to view memory,  q  to quit or  c  to continue: c
+
+The new PC is  : 0000000000010100
+
+
+ProgramCounter : 0000000000011000  base 10:      24
+Accumulator    : 0000000000000000  base 10:       0    // NO OVERFLOW
+InstructionReg : 1111111111000000  base 10:   65472
+TempInstr      : 1100000000000000  base 10:   49152
+StackPointer   : 0000011111001010  base 10:    1994
+ARegister      : 1111111111111111  base 10:   65535
+BRegister      : 1111111111111111  base 10:   65535
+CRegister      : 1111111111001001  base 10:   65481
+DRegister      : 1111111111111111  base 10:   65535
+ERegister      : 0000000000000000  base 10:       0
+FRegister      : 0000000000000000  base 10:       0
+
+Total cycles   : 1005
+
+Type decimal address to view memory,  q  to quit or  c  to continue: 1994
+     the location 1994 has value 1111111111001001 , or 65481  or signed    -55  // RESULT OF MULT 55
+Type  <Enter>  to continue debugging
+Type        q  to quit
+Type        f for forward range
+Type        b for backward range: q
+MIC-1 emulator finishing, goodbye
+
+
+//*************************************
+//             RSHIFT TEST
+//*************************************
+]0;osboxes@ubuntu: ~/COMP3050/Assignment4[01;32mosboxes@ubuntu[00m:[01;34m~/COMP3050/Assignment4[00m$ ./mic1 prom.dat a4_mult_test.obj 0 2000[C[C[C[1P[1P[1P[1@r[1@h[1@i[1@fshift_test.obj 0 2000 [A
+]0;osboxes@ubuntu: ~/COMP3050/Assignment4[01;32mosboxes@ubuntu[00m:[01;34m~/COMP3050/Assignment4[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+
+
+
+Read in 149 micro instructions
+Read in 25 machine instructions
+Starting PC is : 0000000000000000  base 10:       0
+Starting SP is : 0000011111010000  base 10:    2000
+
+
+ProgramCounter : 0000000000000011  base 10:       3
+Accumulator    : 0000110101111011  base 10:    3451    // RESULT OF RSHIFT 0
+InstructionReg : 1111111111000000  base 10:   65472
+TempInstr      : 1100000000000000  base 10:   49152
+StackPointer   : 0000011111010000  base 10:    2000
+ARegister      : 0000000000001111  base 10:      15
+BRegister      : 1111111111111111  base 10:   65535
+CRegister      : 0000000000000000  base 10:       0
+DRegister      : 0000000000000000  base 10:       0
+ERegister      : 0000000000000000  base 10:       0
+FRegister      : 0000000000000000  base 10:       0
+
+Total cycles   : 41
+
+Type decimal address to view memory,  q  to quit or  c  to continue: c
+
+The new PC is  : 0000000000000011
+
+
+ProgramCounter : 0000000000000110  base 10:       6
+Accumulator    : 0000010000000000  base 10:    1024    // RESULT OF RSHIFT 3
+InstructionReg : 1111111111000000  base 10:   65472
+TempInstr      : 1100000000000000  base 10:   49152
+StackPointer   : 0000011111010000  base 10:    2000
+ARegister      : 0000000000001111  base 10:      15
+BRegister      : 1111111111111111  base 10:   65535
+CRegister      : 0000000000000000  base 10:       0
+DRegister      : 0000000000000000  base 10:       0
+ERegister      : 0000000000000000  base 10:       0
+FRegister      : 0000000000000000  base 10:       0
+
+Total cycles   : 88
+
+Type decimal address to view memory,  q  to quit or  c  to continue: c
+
+The new PC is  : 0000000000000110
+
+
+ProgramCounter : 0000000000001001  base 10:       9
+Accumulator    : 0000000111000000  base 10:     448    // RESULT OF RSHIFT 7
+InstructionReg : 1111111111000000  base 10:   65472
+TempInstr      : 1100000000000000  base 10:   49152
+StackPointer   : 0000011111010000  base 10:    2000
+ARegister      : 0000000000001111  base 10:      15
+BRegister      : 1111111111111111  base 10:   65535
+CRegister      : 0000000000000000  base 10:       0
+DRegister      : 0000000000000000  base 10:       0
+ERegister      : 0000000000000000  base 10:       0
+FRegister      : 0000000000000000  base 10:       0
+
+Total cycles   : 143
+
+Type decimal address to view memory,  q  to quit or  c  to continue: c
+
+The new PC is  : 0000000000001001
+
+
+ProgramCounter : 0000000000001100  base 10:      12
+Accumulator    : 0000000000000001  base 10:       1    // RESULT OF RSHIFT 15
+InstructionReg : 1111111111000000  base 10:   65472
+TempInstr      : 1100000000000000  base 10:   49152
+StackPointer   : 0000011111010000  base 10:    2000
+ARegister      : 0000000000001111  base 10:      15
+BRegister      : 1111111111111111  base 10:   65535
+CRegister      : 0000000000000000  base 10:       0
+DRegister      : 0000000000000000  base 10:       0
+ERegister      : 0000000000000000  base 10:       0
+FRegister      : 0000000000000000  base 10:       0
+
+Total cycles   : 214
+
+Type decimal address to view memory,  q  to quit or  c  to continue: c
+
+The new PC is  : 0000000000001100
+
+
+ProgramCounter : 0000000000001111  base 10:      15
+Accumulator    : 0000000000111011  base 10:      59    // RESULT OF RSHIFT 4
+InstructionReg : 1111111111000000  base 10:   65472
+TempInstr      : 1100000000000000  base 10:   49152
+StackPointer   : 0000011111010000  base 10:    2000
+ARegister      : 0000000000001111  base 10:      15
+BRegister      : 1111111111111111  base 10:   65535
+CRegister      : 0000000000000000  base 10:       0
+DRegister      : 0000000000000000  base 10:       0
+ERegister      : 0000000000000000  base 10:       0
+FRegister      : 0000000000000000  base 10:       0
+
+Total cycles   : 263
+
+Type decimal address to view memory,  q  to quit or  c  to continue: q
+MIC-1 emulator finishing, goodbye
+
+]0;osboxes@ubuntu: ~/COMP3050/Assignment4[01;32mosboxes@ubuntu[00m:[01;34m~/COMP3050/Assignment4[00m$ ei[Kxit
+exit
+
+Script done on 2020-10-27 13:21:53-0400
